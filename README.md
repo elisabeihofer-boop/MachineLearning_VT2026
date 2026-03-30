@@ -58,6 +58,7 @@ example (optional arguments in parentheses):
 python evaluation.py --model_path classifier.model --batch_size 4 (--input_file test.tsv --embeddings_file test_embeddings.npy)
 
 
+
 Transcript of one full run:
 
 [gusbeihel@GU.GU.SE@mltgpu-2 ~]$ python train_fasttext.py --input_files train.tsv dev.tsv test.tsv --dim 300 --output_path fasttext.model --win 5 --min_
@@ -66,24 +67,28 @@ count 1 --epochs 50
 * Training FastText *
 * Saving model *
 All done!
+
 [gusbeihel@GU.GU.SE@mltgpu-2 ~]$ python sentence_embeddings.py --input_file train.tsv --output_path fasttext.model --output_file train_embeddings.npy
 * Loading model *
 * Reading data *
 * Generating sentence embeddings *
 * Saving vector embeddings to train_embeddings.npy *
 All done!
+
 [gusbeihel@GU.GU.SE@mltgpu-2 ~]$ python sentence_embeddings.py --input_file test.tsv --output_path fasttext.model --output_file test_embeddings.npy
 * Loading model *
 * Reading data *
 * Generating sentence embeddings *
 * Saving vector embeddings to test_embeddings.npy *
 All done!
+
 [gusbeihel@GU.GU.SE@mltgpu-2 ~]$ python sentence_embeddings.py --input_file dev.tsv --output_path fasttext.model --output_file dev_embeddings.npy
 * Loading model *
 * Reading data *
 * Generating sentence embeddings *
 * Saving vector embeddings to dev_embeddings.npy *
 All done!
+
 [gusbeihel@GU.GU.SE@mltgpu-2 ~]$ python topic_classifier.py --epochs 50 --batch_size 4 --output_path classifier.model --dev_file dev.tsv --dev_embeddings de
 v_embeddings.npy
 * Loading sentence embeddings *
@@ -93,6 +98,7 @@ v_embeddings.npy
 * Building model *
 * Adding optimizer *
 * Training data *
+
 Epoch: 1
 Loss (average): 1.5987041965126991
 
@@ -401,12 +407,11 @@ All done!
 * Creating dataset *
 * Creating dataloader *
 * Loading trained weights *
-/home/gusbeihel@GU.GU.SE/evaluation.py:103: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  model.load_state_dict(torch.load(args.model_path))
 * Predicting *
 * Computing accuracy *
 Accuracy: 0.7402
 All done!
+
 [gusbeihel@GU.GU.SE@mltgpu-2 ~]$
 
 NB: This trial run on the server yielded an even higher accuracy of 74.02% for the test set.
