@@ -1,7 +1,7 @@
 # MachineLearning_VT2026
 Final Assignment for my Machine Learning course
 
-Discussion:
+\n Discussion:
 In my first runs with a vector dimension of 100 and 10 epochs for the FastText model as well as 10 epochs for the neural-network model, the accuracy for the test set amounted to 36.27%. When I increased the dimension to 200 and the epochs for both models to 30, the accuracy for the test set was 66.18%. With a dimension of 300 and 50 epochs, the accuracy for the test set was 70.10%. Therefore it seems that increasing both the dimensionality of the vector embeddings as well as the number of epochs increases the representation quality of the vectors and therefore helps the neural-network model learn more and yields significantly better results.
 
 For the discussion of the confusion matrix, I will focus on the one from the run with the best result (70.10% accuracy): The categories "science/technology" and "travel" were predicted correctly most often. But there is a strong diagonal visible, which shows the correct predictions. This means that every category has been predicted correctly at least a few times (10 times in this case).
